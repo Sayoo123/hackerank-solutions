@@ -1,0 +1,53 @@
+public class Palindrome{
+    public static void main(String [] args)
+    {
+    	String s="world hello malayalam racecar loceaeaecol sayooj wow";
+    	String []sq=s.split(" ");
+    	check c=new check();
+    	c.isplain(sq,sq.length);
+    }
+}
+class check{
+	public void isplain(String words[],int length)
+	{
+		StringBuilder []sb = new StringBuilder[length];
+		List<String> st=new ArrayList<String>();
+		int x=Integer.MAX_VALUE;
+		for(int i=0;i<length;i++)
+		{
+			sb[i] = new StringBuilder("");
+			sb[i].append(words[i]);
+			if(sb[i].reverse().toString().equals(words[i])) {
+				st.add(sb[i].toString());
+			}
+		}
+		String largest="";
+		String smallest="";
+		for(int i=0;i<st.size();i++)
+		{
+			for(int j=0;j<st.size();j++)
+			{
+				if(st.get(i).length()>st.get(j).length()&&st.get(i).length()>largest.length())
+				{
+					largest=st.get(i).toString();
+				}
+				
+			}
+		}
+		for(int i=0;i<st.size();i++)
+		{
+			for(int j=0;j<st.size();j++)
+			{
+				if(st.get(j).length()<st.get(i).length()&&st.get(j).length()<x)
+				{
+					smallest=st.get(j).toString();
+					x=smallest.length();
+				}
+				
+			}
+		}
+
+		System.out.println(largest);
+		System.out.println(smallest);
+	}
+}
